@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { MongoClient } = require('mongodb');
 const path = require('path');
-
+const serverless = require('serverless-http');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -239,14 +239,13 @@ app.get('/getData', async (req, res) => {
 });
 
 // Middleware to serve static files (e.g., CSS, JS, images)
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // Middleware to handle root route and serve index.html
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 // Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+app.use('/functions/server', router);
+module.exports.handler = serverless(app);

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm start server.js"
+    "build": "netlify deploy --prod"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,9 @@
     "mongodb": "^6.4.0",
     "mongoose": "^8.2.1",
     "mysql": "^2.18.1",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "netlify-cli": "^12.7.2",
+    "netlify-lambda": "^2.0.15",
+    "serverless-http": "^2.7.0"
   }
 }
