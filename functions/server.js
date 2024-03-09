@@ -6,8 +6,6 @@ const serverless = require('serverless-http');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const uri = "mongodb+srv://elliott:999@kenkey-sales-app.2hmrfsj.mongodb.net/kenkey-sales-app?retryWrites=true&w=majority";
-
 // Middleware to parse JSON data
 app.use(bodyParser.json());
 
